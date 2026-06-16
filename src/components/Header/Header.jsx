@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 import Navigation from "../Navigation/Navigation";
 
 function Header({ onLoginClick }) {
   return (
     <header className="header">
-      <a className="header__logo" href="/">
+      <Link className="header__logo" to="/">
         NewsExplorer
-      </a>
+      </Link>
 
       <Navigation onLoginClick={onLoginClick} />
     </header>

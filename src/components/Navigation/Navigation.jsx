@@ -1,13 +1,24 @@
+import { NavLink } from "react-router-dom";
+
 function Navigation({ onLoginClick }) {
   return (
     <nav className="navigation" aria-label="Navegação principal">
-      <a className="navigation__link navigation__link_active" href="/">
+      <NavLink
+        exact
+        to="/"
+        className="navigation__link"
+        activeClassName="navigation__link_active"
+      >
         Início
-      </a>
+      </NavLink>
 
-      <a className="navigation__link" href="/saved-news">
+      <NavLink
+        to="/saved-news"
+        className="navigation__link"
+        activeClassName="navigation__link_active"
+      >
         Artigos salvos
-      </a>
+      </NavLink>
 
       <button
         className="navigation__button"

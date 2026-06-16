@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
 
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import SavedNews from "./components/SavedNews/SavedNews";
 import PopupWithForm from "./components/PopupWithForm/PopupWithForm";
 
 import "./components/Header/Header.css";
@@ -51,8 +53,18 @@ function App() {
   return (
     <div className="page">
       <Header onLoginClick={handleLoginClick} />
-      <Main />
-      <About />
+
+      <Switch>
+        <Route exact path="/">
+          <Main />
+          <About />
+        </Route>
+
+        <Route path="/saved-news">
+          <SavedNews />
+        </Route>
+      </Switch>
+
       <Footer />
 
       <PopupWithForm
