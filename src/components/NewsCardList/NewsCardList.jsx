@@ -1,6 +1,11 @@
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ articles, visibleCards, onShowMore }) {
+function NewsCardList({
+  articles,
+  visibleCards,
+  onShowMore,
+  title = "Resultado da busca",
+}) {
   const visibleArticles = articles.slice(0, visibleCards);
   const hasMoreCards = visibleCards < articles.length;
 
@@ -11,7 +16,7 @@ function NewsCardList({ articles, visibleCards, onShowMore }) {
     >
       <div className="news-card-list__container">
         <h2 className="news-card-list__title" id="news-card-list-title">
-          Resultado da busca
+          {title}
         </h2>
 
         <ul className="news-card-list__items">
