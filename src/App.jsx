@@ -12,6 +12,8 @@ import "./components/Footer/Footer.css";
 import "./components/Preloader/Preloader.css";
 import "./components/NewsCard/NewsCard.css";
 import "./components/NewsCardList/NewsCardList.css";
+import "./components/SavedNews/SavedNews.css";
+import "./components/SavedNewsHeader/SavedNewsHeader.css";
 
 function App() {
   return (
