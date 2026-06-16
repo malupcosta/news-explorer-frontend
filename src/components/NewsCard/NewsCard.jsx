@@ -1,3 +1,11 @@
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
 function NewsCard({ article }) {
   return (
     <article className="news-card">
@@ -21,7 +29,7 @@ function NewsCard({ article }) {
 
       <div className="news-card__content">
         <time className="news-card__date" dateTime={article.publishedAt}>
-          {article.date}
+          {formatDate(article.publishedAt)}
         </time>
 
         <h3 className="news-card__title">{article.title}</h3>

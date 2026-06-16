@@ -85,3 +85,11 @@
     min-width: 0;
   }
 }
+.news-card-list__message {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #b6bcbf;
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: center;
+}

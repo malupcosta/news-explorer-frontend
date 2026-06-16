@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchForm() {
+function SearchForm({ onSearch }) {
   const [keyword, setKeyword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -15,12 +15,15 @@ function SearchForm() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (!keyword.trim()) {
+    const trimmedKeyword = keyword.trim();
+
+    if (!trimmedKeyword) {
       setErrorMessage("Por favor, insira uma palavra-chave");
       return;
     }
 
     setErrorMessage("");
+    onSearch(trimmedKeyword);
   }
 
   return (
