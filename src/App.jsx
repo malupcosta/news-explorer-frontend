@@ -8,8 +8,10 @@ import "./components/Navigation/Navigation.css";
 import "./components/Main/Main.css";
 import "./components/SearchForm/SearchForm.css";
 import "./components/About/About.css";
-import "./components/Preloader/Preloader.css";
 import "./components/Footer/Footer.css";
+import "./components/Preloader/Preloader.css";
+import "./components/NewsCard/NewsCard.css";
+import "./components/NewsCardList/NewsCardList.css";
 
 function App() {
   return (
