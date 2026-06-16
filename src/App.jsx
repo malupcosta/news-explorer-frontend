@@ -8,6 +8,7 @@ import "./components/Navigation/Navigation.css";
 import "./components/Main/Main.css";
 import "./components/SearchForm/SearchForm.css";
 import "./components/About/About.css";
+import "./components/Preloader/Preloader.css";
 import "./components/Footer/Footer.css";
 
 function App() {
