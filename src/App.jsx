@@ -14,6 +14,7 @@ import "./components/NewsCard/NewsCard.css";
 import "./components/NewsCardList/NewsCardList.css";
 import "./components/SavedNews/SavedNews.css";
 import "./components/SavedNewsHeader/SavedNewsHeader.css";
+import "./components/PopupWithForm/PopupWithForm.css";
 
 function App() {
   return (
