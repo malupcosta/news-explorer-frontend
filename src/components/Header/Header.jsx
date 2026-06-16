@@ -1,13 +1,13 @@
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({ onLoginClick }) {
   return (
     <header className="header">
       <a className="header__logo" href="/">
         NewsExplorer
       </a>
 
-      <Navigation />
+      <Navigation onLoginClick={onLoginClick} />
     </header>
   );
 }

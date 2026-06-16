@@ -1,4 +1,4 @@
-function Navigation() {
+function Navigation({ onLoginClick }) {
   return (
     <nav className="navigation" aria-label="Navegação principal">
       <a className="navigation__link navigation__link_active" href="/">
@@ -9,7 +9,11 @@ function Navigation() {
         Artigos salvos
       </a>
 
-      <button className="navigation__button" type="button">
+      <button
+        className="navigation__button"
+        type="button"
+        onClick={onLoginClick}
+      >
         Entrar
       </button>
     </nav>
