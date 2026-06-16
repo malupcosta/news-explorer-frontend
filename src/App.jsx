@@ -3,11 +3,11 @@ import Main from "./components/Main/Main";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 
-import "./blocks/header.css";
-import "./blocks/main.css";
-import "./blocks/search-form.css";
-import "./blocks/about.css";
-import "./blocks/footer.css";
+import "./components/Header/Header.css";
+import "./components/Main/Main.css";
+import "./components/SearchForm/SearchForm.css";
+import "./components/About/About.css";
+import "./components/Footer/Footer.css";
 
 function App() {
   return (
