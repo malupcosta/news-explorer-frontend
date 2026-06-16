@@ -4,6 +4,7 @@ import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 
 import "./components/Header/Header.css";
+import "./components/Navigation/Navigation.css";
 import "./components/Main/Main.css";
 import "./components/SearchForm/SearchForm.css";
 import "./components/About/About.css";

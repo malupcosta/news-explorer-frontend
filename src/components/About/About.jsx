@@ -1,11 +1,9 @@
+import authorImage from "../../assets/hero.png";
+
 function About() {
   return (
     <section className="about" aria-labelledby="about-title">
-      <img
-        className="about__image"
-        src="/src/assets/hero.png"
-        alt="Autora do projeto"
-      />
+      <img className="about__image" src={authorImage} alt="Autora do projeto" />
 
       <div className="about__content">
         <h2 className="about__title" id="about-title">
