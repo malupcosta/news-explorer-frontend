@@ -1,4 +1,4 @@
-import authorImage from "../../assets/hero.png";
+import authorImage from "../../images/author.jpg";
 
 function About() {
   return (
@@ -7,18 +7,20 @@ function About() {
 
       <div className="about__content">
         <h2 className="about__title" id="about-title">
-          Sobre o autor
+          Sobre a autora
         </h2>
 
         <p className="about__text">
-          Esse bloco descreve o autor do projeto. Aqui você deve indicar seu
-          nome, o que você faz e quais tecnologias de desenvolvimento você
-          conhece.
+          Meu nome é Maria Luisa e estou estudando desenvolvimento web
+          full-stack na TripleTen. Durante a formação, desenvolvi projetos
+          usando HTML, CSS, JavaScript, React, Node.js, Express e MongoDB.
         </p>
 
         <p className="about__text">
-          Você também pode falar sobre sua experiência com o Practicum, o que
-          aprendeu lá e como pode ajudar clientes em potencial.
+          Este projeto foi criado para praticar a construção de uma aplicação
+          React conectada a uma API externa, com rotas, componentes
+          reutilizáveis, busca de notícias, estados de carregamento e layout
+          responsivo.
         </p>
       </div>
     </section>

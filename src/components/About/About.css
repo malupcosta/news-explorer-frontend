@@ -72,4 +72,8 @@
     height: 272px;
     align-self: center;
   }
+
+  .about__content {
+    max-width: 100%;
+  }
 }
