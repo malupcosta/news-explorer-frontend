@@ -67,12 +67,19 @@
     padding: 86px 16px 32px;
   }
 
+  .main__content {
+    max-width: 100%;
+  }
+
   .main__title {
     margin-bottom: 16px;
     font-size: 36px;
+    line-height: 1.11;
   }
 
   .main__subtitle {
     margin-bottom: 122px;
+    font-size: 20px;
+    line-height: 1.3;
   }
 }
