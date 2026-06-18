@@ -1,13 +1,24 @@
 import { NavLink } from "react-router-dom";
 
-function Navigation({ onLoginClick }) {
+function Navigation({
+  onLoginClick,
+  isMobileMenuOpen,
+  isLightTheme,
+  onCloseMenu,
+}) {
   return (
-    <nav className="navigation" aria-label="Navegação principal">
+    <nav
+      className={`navigation ${
+        isMobileMenuOpen ? "navigation_mobile-open" : ""
+      } ${isLightTheme ? "navigation_theme_light" : ""}`}
+      aria-label="Navegação principal"
+    >
       <NavLink
         exact
         to="/"
         className="navigation__link"
         activeClassName="navigation__link_active"
+        onClick={onCloseMenu}
       >
         Início
       </NavLink>
@@ -16,6 +27,7 @@ function Navigation({ onLoginClick }) {
         to="/saved-news"
         className="navigation__link"
         activeClassName="navigation__link_active"
+        onClick={onCloseMenu}
       >
         Artigos salvos
       </NavLink>

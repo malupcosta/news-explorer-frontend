@@ -9,7 +9,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.header_theme_light {
+  border-bottom-color: #d1d2d6;
+  background-color: #fff;
+}
+
 .header__logo {
+  position: relative;
+  z-index: 4;
   color: #fff;
   font-family: "Roboto Slab", Georgia, "Times New Roman", serif;
   font-size: 20px;
@@ -18,8 +25,16 @@
   text-decoration: none;
 }
 
+.header_theme_light .header__logo {
+  color: #1a1b22;
+}
+
 .header__logo:hover {
   opacity: 0.8;
+}
+
+.header__menu-button {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -35,7 +50,55 @@
     padding: 0 16px;
   }
 
+  .header_menu-open {
+    background-color: #1a1b22;
+  }
+
+  .header_menu-open .header__logo {
+    color: #fff;
+  }
+
   .header__logo {
     font-size: 16px;
+  }
+
+  .header__menu-button {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  .header__menu-line {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: #fff;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .header_theme_light .header__menu-line {
+    background-color: #1a1b22;
+  }
+
+  .header_menu-open .header__menu-line {
+    background-color: #fff;
+  }
+
+  .header__menu-button_open .header__menu-line:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .header__menu-button_open .header__menu-line:last-child {
+    transform: translateY(-3px) rotate(-45deg);
   }
 }
