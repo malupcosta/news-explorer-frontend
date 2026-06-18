@@ -30,6 +30,7 @@ Este projeto faz parte da Fase 1 do projeto final da TripleTen.
 - React Router
 - Vite
 - News API
+- Netlify
 - Git e GitHub
 
 ## Estrutura do projeto
@@ -95,14 +96,26 @@ Para gerar a versão de produção:
 npm run build
 ```
 
+Para visualizar a versão de produção localmente:
+
+```bash
+npm run preview
+```
+
 ## API utilizada
 
 O projeto utiliza a News API para buscar notícias por palavra-chave.
 
-Endpoint usado:
+Endpoint usado em desenvolvimento:
 
 ```txt
 https://newsapi.org/v2/everything
+```
+
+Endpoint usado em produção:
+
+```txt
+https://nomoreparties.co/news/v2/everything
 ```
 
 Parâmetros principais:
@@ -121,6 +134,14 @@ Parâmetros principais:
 /saved-news  Página de artigos salvos
 ```
 
+## Deploy
+
+O projeto está publicado no Netlify:
+
+```txt
+https://marvelous-otter-605af9.netlify.app/
+```
+
 ## Status do projeto
 
 Fase 1 concluída:
@@ -134,9 +155,16 @@ Fase 1 concluída:
 - Menu mobile
 - Fontes locais com @font-face
 - Imagens principais do projeto
+- Deploy do front-end
 
 ## Repositório
 
 ```txt
 https://github.com/malupcosta/news-explorer-frontend
+```
+
+## Pull Request
+
+```txt
+https://github.com/malupcosta/news-explorer-frontend/pull/1
 ```
