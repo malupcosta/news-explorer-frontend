@@ -1,15 +1,19 @@
-const NEWS_API_BASE_URL = "https://newsapi.org/v2/everything";
+const NEWS_API_BASE_URL = import.meta.env.PROD
+  ? "https://nomoreparties.co/news/v2/everything"
+  : "https://newsapi.org/v2/everything";
+
 const NEWS_API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const PAGE_SIZE = 100;
 
 function getCurrentDate() {
-  return new Date().toISOString().slice(0, 10);
+  return new Date().toISOString().split("T")[0];
 }
 
-function getDateSevenDaysAgo() {
+function getPastDate() {
   const date = new Date();
   date.setDate(date.getDate() - 7);
-  return date.toISOString().slice(0, 10);
+
+  return date.toISOString().split("T")[0];
 }
 
 function checkResponse(res) {
@@ -21,14 +25,14 @@ function checkResponse(res) {
 }
 
 export function searchNews(keyword) {
-  const params = new URLSearchParams({
-    q: keyword,
-    apiKey: NEWS_API_KEY,
-    from: getDateSevenDaysAgo(),
-    to: getCurrentDate(),
-    pageSize: PAGE_SIZE,
-    language: "pt",
-  });
+  const url = new URL(NEWS_API_BASE_URL);
 
-  return fetch(`${NEWS_API_BASE_URL}?${params.toString()}`).then(checkResponse);
+  url.searchParams.set("q", keyword);
+  url.searchParams.set("apiKey", NEWS_API_KEY);
+  url.searchParams.set("from", getPastDate());
+  url.searchParams.set("to", getCurrentDate());
+  url.searchParams.set("pageSize", PAGE_SIZE);
+  url.searchParams.set("language", "pt");
+
+  return fetch(url).then(checkResponse);
 }
