@@ -1,3 +1,7 @@
+import saveIcon from "../../images/icons/save-icon.svg";
+
+import "./NewsCard.css";
+
 function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString("pt-BR", {
     day: "numeric",
@@ -20,7 +24,14 @@ function NewsCard({ article }) {
           className="news-card__save-button"
           type="button"
           aria-label="Salvar artigo"
-        />
+        >
+          <img
+            className="news-card__save-icon"
+            src={saveIcon}
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
 
         <span className="news-card__tooltip">
           Faça o login para salvar os artigos.

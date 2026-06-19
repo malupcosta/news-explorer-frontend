@@ -12,19 +12,6 @@ import NewsCardList from "./components/NewsCardList/NewsCardList";
 
 import { searchNews } from "./utils/NewsApi";
 
-import "./components/Header/Header.css";
-import "./components/Navigation/Navigation.css";
-import "./components/Main/Main.css";
-import "./components/SearchForm/SearchForm.css";
-import "./components/About/About.css";
-import "./components/Footer/Footer.css";
-import "./components/Preloader/Preloader.css";
-import "./components/NewsCard/NewsCard.css";
-import "./components/NewsCardList/NewsCardList.css";
-import "./components/SavedNews/SavedNews.css";
-import "./components/SavedNewsHeader/SavedNewsHeader.css";
-import "./components/PopupWithForm/PopupWithForm.css";
-
 const INITIAL_VISIBLE_CARDS = 3;
 const CARDS_INCREMENT = 3;
 const REQUEST_ERROR_MESSAGE =
@@ -32,6 +19,7 @@ const REQUEST_ERROR_MESSAGE =
 
 function App() {
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
+  const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [articles, setArticles] = useState([]);
   const [visibleCards, setVisibleCards] = useState(INITIAL_VISIBLE_CARDS);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,11 +27,18 @@ function App() {
   const [searchError, setSearchError] = useState("");
 
   function handleLoginClick() {
+    setIsRegisterPopupOpen(false);
     setIsLoginPopupOpen(true);
+  }
+
+  function handleRegisterClick() {
+    setIsLoginPopupOpen(false);
+    setIsRegisterPopupOpen(true);
   }
 
   function closeAllPopups() {
     setIsLoginPopupOpen(false);
+    setIsRegisterPopupOpen(false);
   }
 
   function handleSearch(keyword) {
@@ -95,7 +90,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!isLoginPopupOpen) {
+    if (!isLoginPopupOpen && !isRegisterPopupOpen) {
       return undefined;
     }
 
@@ -110,7 +105,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [isLoginPopupOpen]);
+  }, [isLoginPopupOpen, isRegisterPopupOpen]);
 
   return (
     <div className="page">
@@ -168,6 +163,9 @@ function App() {
         name="login"
         buttonText="Entrar"
         onClose={closeAllPopups}
+        captionText="ou"
+        linkText="Inscreva-se"
+        onLinkClick={handleRegisterClick}
       >
         <label className="popup__field">
           <span className="popup__label">E-mail</span>
@@ -187,6 +185,52 @@ function App() {
             type="password"
             name="password"
             placeholder="Insira sua senha"
+            required
+          />
+        </label>
+      </PopupWithForm>
+
+      <PopupWithForm
+        isOpen={isRegisterPopupOpen}
+        title="Inscrever-se"
+        name="register"
+        buttonText="Inscrever-se"
+        onClose={closeAllPopups}
+        captionText="ou"
+        linkText="Entrar"
+        onLinkClick={handleLoginClick}
+      >
+        <label className="popup__field">
+          <span className="popup__label">E-mail</span>
+          <input
+            className="popup__input"
+            type="email"
+            name="email"
+            placeholder="Insira seu e-mail"
+            required
+          />
+        </label>
+
+        <label className="popup__field">
+          <span className="popup__label">Senha</span>
+          <input
+            className="popup__input"
+            type="password"
+            name="password"
+            placeholder="Insira sua senha"
+            required
+          />
+        </label>
+
+        <label className="popup__field">
+          <span className="popup__label">Nome de usuário</span>
+          <input
+            className="popup__input"
+            type="text"
+            name="name"
+            placeholder="Insira seu nome de usuário"
+            minLength="2"
+            maxLength="30"
             required
           />
         </label>

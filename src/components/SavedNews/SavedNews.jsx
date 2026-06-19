@@ -4,6 +4,7 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCardList from "../NewsCardList/NewsCardList";
 
 import placeholderImage from "../../assets/hero.png";
+import "./SavedNews.css";
 
 const SAVED_ARTICLES = [
   {

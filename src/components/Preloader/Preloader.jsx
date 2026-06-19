@@ -1,3 +1,5 @@
+import "./Preloader.css";
+
 function Preloader() {
   return (
     <section className="preloader" aria-label="Carregando resultados">

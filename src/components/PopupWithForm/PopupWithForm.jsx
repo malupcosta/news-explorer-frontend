@@ -1,8 +1,24 @@
-function PopupWithForm({ isOpen, title, name, buttonText, children, onClose }) {
+import "./PopupWithForm.css";
+
+function PopupWithForm({
+  isOpen,
+  title,
+  name,
+  buttonText,
+  children,
+  onClose,
+  captionText,
+  linkText,
+  onLinkClick,
+}) {
   function handleOverlayClick(event) {
     if (event.target === event.currentTarget) {
       onClose();
     }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
   }
 
   return (
@@ -20,7 +36,7 @@ function PopupWithForm({ isOpen, title, name, buttonText, children, onClose }) {
 
         <h2 className="popup__title">{title}</h2>
 
-        <form className="popup__form" name={name}>
+        <form className="popup__form" name={name} onSubmit={handleSubmit}>
           {children}
 
           <button className="popup__submit-button" type="submit">
@@ -28,9 +44,13 @@ function PopupWithForm({ isOpen, title, name, buttonText, children, onClose }) {
           </button>
 
           <p className="popup__caption">
-            ou{" "}
-            <button className="popup__link-button" type="button">
-              Inscreva-se
+            {captionText}{" "}
+            <button
+              className="popup__link-button"
+              type="button"
+              onClick={onLinkClick}
+            >
+              {linkText}
             </button>
           </p>
         </form>
