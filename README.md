@@ -139,7 +139,7 @@ Parâmetros principais:
 O projeto está publicado no Netlify:
 
 ```txt
-https://marvelous-otter-605af9.netlify.app/
+https://earnest-moonbeam-961ac6.netlify.app/
 ```
 
 ## Status do projeto
