@@ -1,16 +1,170 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+News Explorer é uma aplicação front-end desenvolvida em React. O projeto permite pesquisar notícias por palavra-chave usando uma API externa, exibir os resultados em cards, mostrar estados de carregamento e erro, além de simular a página de artigos salvos.
 
-Currently, two official plugins are available:
+Este projeto faz parte da Fase 1 do projeto final da TripleTen.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Pesquisa de notícias por palavra-chave
+- Integração com a News API
+- Exibição dos resultados em cards
+- Renderização inicial de 3 notícias
+- Botão "Mostrar mais" para carregar mais cards
+- Estado de carregamento com preloader
+- Mensagem para busca sem resultados
+- Tratamento de erro de requisição
+- Armazenamento dos resultados no localStorage
+- Página de artigos salvos
+- Popup de login
+- Fechamento do popup por botão, overlay e tecla Esc
+- Menu mobile responsivo
+- Layout responsivo para desktop, tablet e mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+- HTML5
+- CSS3
+- JavaScript
+- React
+- React Router
+- Vite
+- News API
+- Netlify
+- Git e GitHub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estrutura do projeto
+
+```txt
+src/
+  components/
+    About/
+    Footer/
+    Header/
+    Main/
+    Navigation/
+    NewsCard/
+    NewsCardList/
+    PopupWithForm/
+    Preloader/
+    SavedNews/
+    SavedNewsHeader/
+    SearchForm/
+  images/
+  utils/
+    NewsApi.js
+  vendor/
+    fonts/
+    fonts.css
+```
+
+## Como executar o projeto localmente
+
+Clone o repositório:
+
+```bash
+git clone git@github.com:malupcosta/news-explorer-frontend.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd news-explorer-frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Crie um arquivo `.env` na raiz do projeto e adicione sua chave da News API:
+
+```env
+VITE_NEWS_API_KEY=sua_chave_aqui
+```
+
+Execute o projeto em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+Para visualizar a versão de produção localmente:
+
+```bash
+npm run preview
+```
+
+## API utilizada
+
+O projeto utiliza a News API para buscar notícias por palavra-chave.
+
+Endpoint usado em desenvolvimento:
+
+```txt
+https://newsapi.org/v2/everything
+```
+
+Endpoint usado em produção:
+
+```txt
+https://nomoreparties.co/news/v2/everything
+```
+
+Parâmetros principais:
+
+- `q`: palavra-chave pesquisada
+- `from`: data inicial da busca
+- `to`: data final da busca
+- `pageSize`: quantidade de notícias retornadas
+- `language`: idioma das notícias
+- `apiKey`: chave de autenticação da API
+
+## Rotas
+
+```txt
+/            Página inicial com busca de notícias
+/saved-news  Página de artigos salvos
+```
+
+## Deploy
+
+O projeto está publicado no Netlify:
+
+```txt
+https://earnest-moonbeam-961ac6.netlify.app/
+```
+
+## Status do projeto
+
+Fase 1 concluída:
+
+- Marcação e JSX
+- Componentização
+- Roteamento
+- Integração com API externa
+- Estados de carregamento e erro
+- Responsividade
+- Menu mobile
+- Fontes locais com @font-face
+- Imagens principais do projeto
+- Deploy do front-end
+
+## Repositório
+
+```txt
+https://github.com/malupcosta/news-explorer-frontend
+```
+
+## Pull Request
+
+```txt
+https://github.com/malupcosta/news-explorer-frontend/pull/1
+```
