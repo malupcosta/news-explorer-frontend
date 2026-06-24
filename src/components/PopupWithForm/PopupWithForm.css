@@ -164,3 +164,30 @@
 .popup__link-button:hover {
   opacity: 0.7;
 }
+
+.popup__input-error {
+  min-height: 16px;
+  margin-top: 4px;
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.popup__submit-error {
+  min-height: 16px;
+  margin-bottom: 8px;
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.popup__submit-button:disabled {
+  color: #b6bcbf;
+  background-color: #e6e8eb;
+  cursor: default;
+}
+
+.popup__submit-button:disabled:hover {
+  background-color: #e6e8eb;
+}

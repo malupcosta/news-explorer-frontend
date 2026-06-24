@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
-function Header({ onLoginClick }) {
+function Header({ onLoginClick, onSignOut, loggedIn }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
@@ -20,6 +20,11 @@ function Header({ onLoginClick }) {
 
   function handleLoginClick() {
     onLoginClick();
+    handleCloseMenu();
+  }
+
+  function handleSignOut() {
+    onSignOut();
     handleCloseMenu();
   }
 
@@ -49,7 +54,9 @@ function Header({ onLoginClick }) {
         isMobileMenuOpen={isMobileMenuOpen}
         isLightTheme={isLightTheme}
         onLoginClick={handleLoginClick}
+        onSignOut={handleSignOut}
         onCloseMenu={handleCloseMenu}
+        loggedIn={loggedIn}
       />
     </header>
   );

@@ -6,9 +6,19 @@ function NewsCardList({
   visibleCards,
   onShowMore,
   title = "Resultado da busca",
+  isSavedPage = false,
+  onSaveArticle,
+  onDeleteArticle,
+  savedArticles = [],
+  loggedIn,
+  onLoginClick,
 }) {
-  const visibleArticles = articles.slice(0, visibleCards);
-  const hasMoreCards = visibleCards < articles.length;
+  const visibleArticles = isSavedPage ? articles : articles.slice(0, visibleCards);
+  const hasMoreCards = !isSavedPage && visibleCards < articles.length;
+
+  function findSavedArticle(article) {
+    return savedArticles.find((savedArticle) => savedArticle.link === article.url);
+  }
 
   return (
     <section
@@ -21,11 +31,30 @@ function NewsCardList({
         </h2>
 
         <ul className="news-card-list__items">
-          {visibleArticles.map((article) => (
-            <li className="news-card-list__item" key={article.url}>
-              <NewsCard article={article} />
-            </li>
-          ))}
+          {visibleArticles.map((article) => {
+            const savedArticle = findSavedArticle(article);
+            const preparedArticle = {
+              ...article,
+              savedArticleId: savedArticle?._id,
+            };
+
+            return (
+              <li
+                className="news-card-list__item"
+                key={article.url || article.link || article._id}
+              >
+                <NewsCard
+                  article={preparedArticle}
+                  isSavedPage={isSavedPage}
+                  isSaved={Boolean(savedArticle)}
+                  onSaveArticle={onSaveArticle}
+                  onDeleteArticle={onDeleteArticle}
+                  loggedIn={loggedIn}
+                  onLoginClick={onLoginClick}
+                />
+              </li>
+            );
+          })}
         </ul>
 
         {hasMoreCards && (

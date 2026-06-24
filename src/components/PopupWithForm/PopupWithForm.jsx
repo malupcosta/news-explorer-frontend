@@ -7,18 +7,17 @@ function PopupWithForm({
   buttonText,
   children,
   onClose,
+  onSubmit,
   captionText,
   linkText,
   onLinkClick,
+  isValid = true,
+  errorMessage = "",
 }) {
   function handleOverlayClick(event) {
     if (event.target === event.currentTarget) {
       onClose();
     }
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
   }
 
   return (
@@ -36,10 +35,18 @@ function PopupWithForm({
 
         <h2 className="popup__title">{title}</h2>
 
-        <form className="popup__form" name={name} onSubmit={handleSubmit}>
+        <form className="popup__form" name={name} onSubmit={onSubmit}>
           {children}
 
-          <button className="popup__submit-button" type="submit">
+          {errorMessage && (
+            <span className="popup__submit-error">{errorMessage}</span>
+          )}
+
+          <button
+            className="popup__submit-button"
+            type="submit"
+            disabled={!isValid}
+          >
             {buttonText}
           </button>
 
