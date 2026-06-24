@@ -1,6 +1,7 @@
 import SearchForm from "../SearchForm/SearchForm";
+import "./Main.css";
 
-function Main() {
+function Main({ onSearch }) {
   return (
     <main className="main">
       <section className="main__hero">
@@ -12,7 +13,7 @@ function Main() {
             conta pessoal.
           </p>
 
-          <SearchForm />
+          <SearchForm onSearch={onSearch} />
         </div>
       </section>
     </main>
